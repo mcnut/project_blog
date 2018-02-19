@@ -1,17 +1,36 @@
-/*  Set up an express app  */
+/*  Set up a second GET route and serve views  */
 
-//  Call the required npm packages
+//  ==============================
+    //  REQUIREMENTS
+//  ==============================
 var express = require("express");
 
-//  Create an instance of express
+//  ==============================
+    //  DECLARATIONS
+//  ==============================
 var app = express();
 
-//  Create an index Route
+//  Set the view-engine. This means we dont have to use the .ejs extension in our routes
+app.set("view engine", "ejs");
+
+//  ==============================
+    //  ROUTES
+//  ==============================
+
+//  Create an index route to serve home.ejs
 app.get("/", function(req, res) {
-    res.send("Index Route...");
+    res.render("home");
 });
 
-//  Set up server to listen on http://localhost:3000
+//  Create a blogs route to serve blogs.ejs
+app.get("/blogs", function(req, res) {
+    res.render("blogs");
+});
+
+//  ==============================
+    //  SERVER
+//  ==============================
+
 app.listen(3000, function() {
     console.log("Server listening on PORT 3000");
 });
