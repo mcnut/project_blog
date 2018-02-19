@@ -1,1 +1,15 @@
 <h1>Blogs Page</h1>
+
+<!-- Add simple links to home and new pages -->
+<a href="/">Home</a>
+<a href="/blogs/new">Add a new blog</a>
+
+<hr>
+
+<!-- Display the data from the blogs array declared in app.js -->
+<% blogs.forEach(function(blog) { %>
+    <div>
+        <h3><%= blog.blogTitle %></h3>
+        <p><%= blog.blogBody %></p>        
+    </div>     
+<% }); %> 
